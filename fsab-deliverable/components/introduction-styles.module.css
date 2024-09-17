@@ -1,0 +1,27 @@
+.container {
+    width: 50%;
+    margin: auto;
+    border: 2px solid green;
+    padding: 25px;
+}
+
+.name {
+    color: green;
+    text-align: center;
+    margin: auto;
+}
+
+.bio {
+    color: black;
+    text-align: center;
+    margin: auto;
+    line-height: 1.5;
+}
+
+.fun {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    line-height: 1.5;
+}

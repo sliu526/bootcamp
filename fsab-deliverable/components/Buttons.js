@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import classes from "./buttons-styles.module.css"
 
 export default function Buttons(props) {
     const[buttonCount, setButtonCount] = useState(0);
@@ -12,14 +13,14 @@ export default function Buttons(props) {
         setButtonCount(0);
     }
 
-    return <div>
+    return <div className={classes.button}>
         <button
             onClick={increaseButtonCount}
         >{props.buttonText}</button>
-        <p>You clicked the {props.buttonText} {buttonCount} times!</p>
+        <p>{buttonCount} likes!</p>
 
         <button
             onClick={resetButtonCount}
-        >Click this to reset the {props.buttonText} counter!</button>
+        >Reset likes</button>
     </div>
 }
