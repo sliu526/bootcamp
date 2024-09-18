@@ -20,14 +20,23 @@ app.get("/", async(req, res) => { // going to 8080 calls the backend through the
 });
 
 app.get("/api/test", async (req, res) => {
-    const collectionRef = collection(db, "test");
-    const collectionSnap = await getDocs(collectionRef);
+    const testCollectionRef = collection(db, "test");
+    const collectionSnap = await getDocs(testCollectionRef);
     const docs = [];
     collectionSnap.forEach( (doc) => {
         docs.push(doc.data());
     });
     res.send(docs);
 })
+
+app.get("/api/Basics", async (req, res) => {
+    const newCollectionRef = collection(db, "Basics");
+    const newCollectionSnap = await getDocs(newCollectionRef);
+    const docs = [];
+    newCollectionSnap.forEach( (doc) => {
+        docs.push(doc.data());
+    });
+});
 
 // STARTS THE PROGRAM
 app.listen(port, () => { // listen for incoming traffic
