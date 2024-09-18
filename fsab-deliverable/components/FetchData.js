@@ -11,7 +11,7 @@ export default function FetchData() {
                 const result = await response.json();
                 setFirebaseData(result);
             } catch (e) {
-                console.e("Error fetching data:", e);
+                console.error("Error fetching data:", e);
             }
         }
 
