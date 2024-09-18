@@ -3,6 +3,8 @@ import styles from "./page.module.css";
 import MyInterests from "/components/MyInterests.js";
 import Introduction from "/components/Introduction.js"
 import RightCard from "/components/RightCard";
+import ConfettiButton from "/components/ConfettiButton";
+import FetchData from "/components/FetchData";
 
 export default function Home() {
   return <div>
@@ -19,5 +21,9 @@ export default function Home() {
       text="I've played tennis since elementary school, but I haven't really played since high school. Some of my friends are getting
       back into tennis though, and I'm excited to start playing again!"
     ></RightCard>
+
+    <ConfettiButton></ConfettiButton>
+
+    <FetchData></FetchData>
   </div>
 }
