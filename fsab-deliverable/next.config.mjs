@@ -4,8 +4,8 @@ export default {
     async rewrites() {
       return [
         {
-          source: '/api/basics',
-          destination: 'http://localhost:8080/api/basics',
+          source: '/api/test',
+          destination: 'http://localhost:8080/api/test',
         },
       ]
     },

@@ -7,7 +7,7 @@ export default function FetchData() {
     useEffect(() => {
         const fetchData = async() => {
             try {
-                const response = await fetch("/api/basics");
+                const response = await fetch("/api/test");
                 const result = await response.json();
                 setFirebaseData(result);
             } catch (e) {
@@ -22,7 +22,12 @@ export default function FetchData() {
         <h1>data from firestore database</h1>
         <ul>
             {firebaseData.map((item) => (
-                <li key={item.id}>{item.name}</li>
+                <li key={item.id}>
+                    {item.name} 
+                    <br></br>
+                    <br></br>
+                    {item.happy}
+                    </li>
             ))}
         </ul>
     </div>

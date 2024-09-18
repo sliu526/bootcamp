@@ -19,8 +19,8 @@ app.get("/", async(req, res) => { // going to 8080 calls the backend through the
     res.send("backend working!");
 });
 
-app.get("/api/basics", async (req, res) => {
-    const collectionRef = collection(db, "Basics");
+app.get("/api/test", async (req, res) => {
+    const collectionRef = collection(db, "test");
     const collectionSnap = await getDocs(collectionRef);
     const docs = [];
     collectionSnap.forEach( (doc) => {
