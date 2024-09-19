@@ -19,6 +19,21 @@ app.get("/", async(req, res) => { // going to 8080 calls the backend through the
     res.send("backend working!");
 });
 
+// NEW
+
+app.get("/hello", async (req, res) => {
+    console.log("hello collection is now running")
+	const aRef = collection(db, "hello");
+	const aSnap = await getDocs(aRef)
+	const aDocs = []
+	aSnap.forEach((doc) => {
+		aDocs.push(doc.data())
+	})
+	res.send(aDocs)
+})
+
+// BREAK POINT
+
 app.get("/test", async (req, res) => {
     console.log("getting data from test collection");
     const testCollectionRef = collection(db, "test");
@@ -50,6 +65,7 @@ app.get("/basics", async (req, res) => {
     newCollectionSnap.forEach( (doc) => {
         newDocs.push(doc.data());
     });
+    res.send(newDocs);
 });
 
 // STARTS THE PROGRAM
