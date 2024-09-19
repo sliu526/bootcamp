@@ -7,8 +7,8 @@ export default function FetchMoreData() {
     useEffect(() => {
         const fetchMoreData = async() => {
             try {
-                const response = await fetch("/api/Basics");
-                const result = await response.json();
+                const response = await fetch("/basics");
+                const result = await response.json(); // turns response into a json, can also do into a string
                 setFirebaseData(result);
             } catch (e) {
                 console.error("Error fetching data:", e);

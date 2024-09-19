@@ -19,7 +19,8 @@ app.get("/", async(req, res) => { // going to 8080 calls the backend through the
     res.send("backend working!");
 });
 
-app.get("/api/test", async (req, res) => {
+app.get("/test", async (req, res) => {
+    console.log("getting data from test collection");
     const testCollectionRef = collection(db, "test");
     const collectionSnap = await getDocs(testCollectionRef);
     const docs = [];
@@ -29,16 +30,30 @@ app.get("/api/test", async (req, res) => {
     res.send(docs);
 })
 
-app.get("/api/Basics", async (req, res) => {
-    const newCollectionRef = collection(db, "Basics");
+app.post("/test", async (req, res) => {
+    const testRef = collection(db, "test");
+    const testBody = req.body;
+    try {
+        await addDoc(testRef, testBody)
+    } catch (e) {
+        console.error(e);
+        res.status(500);
+    }
+    res.status(200).send("correctly conducted the test")
+})
+
+app.get("/basics", async (req, res) => {
+    console.log("getting data from Basics collection");
+    const newCollectionRef = collection(db, "basics");
     const newCollectionSnap = await getDocs(newCollectionRef);
-    const docs = [];
+    const newDocs = [];
     newCollectionSnap.forEach( (doc) => {
-        docs.push(doc.data());
+        newDocs.push(doc.data());
     });
 });
 
 // STARTS THE PROGRAM
+
 app.listen(port, () => { // listen for incoming traffic
     console.log("Listening on port ", port);
 });
